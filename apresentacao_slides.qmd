@@ -1,0 +1,1051 @@
+---
+title: "Tempo de tela, sono e \\textcolor{tallyTerracotta}{bem-estar} em universitários"
+subtitle: "Um estudo sobre a influência das telas no sono e na ansiedade — MAE0316 (IME-USP)"
+author: "Augusto Braga  ·  Gabriela Cruz  ·  Isabella Leitão  ·  João Vitor Vasconcelos  ·  Marina Murilla"
+lang: pt-BR
+format:
+  beamer:
+    pdf-engine: xelatex
+    aspectratio: 169
+    fontsize: 10pt
+    mainfont: "Latin Modern Roman"
+    sansfont: "Latin Modern Sans"
+    theme: default
+    colortheme: default
+    slide-level: 2
+    include-in-header:
+      text: |
+        \usepackage{xcolor}
+        \usepackage{booktabs}
+        \usepackage{tikz}
+        \usepackage{etoolbox}
+        \definecolor{tallyCream}{HTML}{FCF6EE}
+        \definecolor{tallySurface}{HTML}{FFFDF9}
+        \definecolor{tallyCard}{HTML}{F5E9DA}
+        \definecolor{tallyEspresso}{HTML}{382A24}
+        \definecolor{tallyBadge}{HTML}{594A42}
+        \definecolor{tallyTerracotta}{HTML}{B55A30}
+        \definecolor{tallyOchre}{HTML}{D68B45}
+        \definecolor{tallyBorder}{HTML}{DFC8B6}
+        \definecolor{tallyMuted}{HTML}{7A6A60}
+
+        % Margens laterais amplas para respiro visual (widescreen 16:9)
+        \setbeamersize{text margin left=10mm, text margin right=10mm}
+
+        % Paleta Tally
+        \setbeamercolor{background canvas}{bg=tallyCream}
+        \setbeamercolor{normal text}{fg=tallyEspresso}
+        \setbeamercolor{structure}{fg=tallyTerracotta}
+        \setbeamercolor{frametitle}{fg=tallyEspresso,bg=tallyCard}
+        \setbeamercolor{title}{fg=tallyEspresso,bg=tallyCard}
+        \setbeamercolor{subtitle}{fg=tallyBadge}
+        \setbeamercolor{author}{fg=tallyEspresso}
+        \setbeamercolor{date}{fg=tallyBadge}
+        \setbeamercolor{block title}{fg=tallyCream,bg=tallyBadge}
+        \setbeamercolor{block body}{fg=tallyEspresso,bg=tallyCard}
+        \setbeamercolor{block title alerted}{fg=tallyCream,bg=tallyTerracotta}
+        \setbeamercolor{block body alerted}{fg=tallyEspresso,bg=tallyCard}
+        \setbeamercolor{item}{fg=tallyTerracotta}
+        \setbeamercolor{subitem}{fg=tallyOchre}
+        \setbeamercolor{footline}{fg=tallyBadge,bg=tallyCard}
+
+        % Tipografia
+        \setbeamerfont{title}{family=\rmfamily,series=\bfseries,size=\large}
+        \setbeamerfont{subtitle}{family=\sffamily,series=\mdseries,size=\small}
+        \setbeamerfont{author}{family=\sffamily,series=\mdseries,size=\small}
+        \setbeamerfont{date}{family=\sffamily,series=\mdseries,size=\footnotesize}
+        \setbeamerfont{frametitle}{family=\rmfamily,series=\bfseries,size=\normalsize}
+        \setbeamerfont{block title}{family=\sffamily,series=\bfseries,size=\small}
+        \setbeamerfont{block body}{size=\footnotesize}
+
+        % Blocos arredondados flat no estilo Tally
+        \setbeamertemplate{blocks}[rounded][shadow=false]
+        \setbeamertemplate{navigation symbols}{}
+        \setbeamertemplate{itemize items}[circle]
+        \setbeamertemplate{enumerate items}[square]
+
+        % Espaçamento vertical calibrado entre blocos (cards) e nas listas/tabelas
+        \addtobeamertemplate{block begin}{\vspace{0.10cm}}{}
+        \addtobeamertemplate{block end}{\vspace{0.05cm}}{\vspace{0.12cm}}
+        \setlength{\leftmargini}{1.15em}
+        \setlength{\leftmarginii}{1.0em}
+        \makeatletter
+        \patchcmd{\@listI}{\itemsep3\p@}{\itemsep4\p@}{}{}
+        \makeatother
+        \renewcommand{\arraystretch}{1.16}
+
+        % Cabeçalho (Frametitle) em linha única com padding equilibrado e linha divisória Tally
+        \setbeamertemplate{frametitle}{%
+          \nointerlineskip%
+          \begin{beamercolorbox}[wd=\paperwidth,ht=6.8mm,dp=2.2mm,leftskip=10mm,rightskip=10mm]{frametitle}%
+            \fontsize{11.5pt}{13pt}\selectfont\rmfamily\bfseries\insertframetitle%
+          \end{beamercolorbox}%
+          \nointerlineskip%
+          {\color{tallyBorder}\hrule height 0.8pt}%
+          \vspace{2.0mm}%
+        }
+
+        % Capa customizada elegante no estilo Tally (sem hifenizar bem-estar)
+        \date{Novembro de 2026  ·  Profª. Viviana Giampaoli}
+        \setbeamertemplate{title page}{%
+          \vbox{}
+          \vfill
+          \begin{centering}
+            \begin{tikzpicture}
+              \node[
+                draw=tallyBorder,
+                line width=1pt,
+                fill=tallyCard,
+                rounded corners=8pt,
+                inner xsep=18pt,
+                inner ysep=16pt,
+                text width=0.88\textwidth,
+                align=center
+              ] {
+                {\fontsize{14.5pt}{18pt}\selectfont\rmfamily\bfseries\usebeamercolor[fg]{title}\inserttitle\par}
+                \vspace{3.5mm}
+                {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}
+              };
+            \end{tikzpicture}
+            \vspace{6mm}\par
+            \begin{tikzpicture}
+              \node[
+                draw=tallyBorder,
+                line width=0.7pt,
+                fill=tallySurface,
+                rounded corners=12pt,
+                inner xsep=14pt,
+                inner ysep=6pt
+              ] {
+                {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}
+              };
+            \end{tikzpicture}
+            \vspace{4mm}\par
+            {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par}
+          \end{centering}
+          \vfill
+        }
+
+        % Rodapé (Footline) estritamente em linha única com \hbox to \textwidth e \hfill
+        \setbeamertemplate{footline}{%
+          \leavevmode%
+          \vbox{%
+            {\color{tallyBorder}\hrule height 0.6pt}%
+            \begin{beamercolorbox}[wd=\paperwidth,ht=4.4mm,dp=1.8mm,leftskip=10mm,rightskip=10mm]{footline}%
+              \hbox to \dimexpr\paperwidth-20mm\relax{%
+                \sffamily\fontsize{6.2pt}{7.8pt}\selectfont%
+                \textbf{\textcolor{tallyTerracotta}{MAE0316 · IME-USP}}\hspace{5pt}\textcolor{tallyBorder}{|}\hspace{5pt}\textcolor{tallyEspresso}{A. Braga · G. Cruz · I. Leitão · J. Vasconcelos · M. Murilla}%
+                \hfill%
+                \textcolor{tallyBadge}{Tempo de tela, sono e bem-estar}%
+                \hfill%
+                \textcolor{tallyMuted}{Nov/2026}\hspace{5pt}\textcolor{tallyBorder}{|}\hspace{5pt}\textbf{\textcolor{tallyTerracotta}{\insertframenumber}}\textcolor{tallyMuted}{\,/\,\inserttotalframenumber}%
+              }%
+            \end{beamercolorbox}%
+          }%
+        }
+
+        % Badge estilo tecla do Tally (A, B, C, 1, 2...)
+        \newcommand{\tallykey}[1]{\tikz[baseline=(char.base)]{\node[shape=rectangle,rounded corners=2pt,fill=tallyTerracotta,text=tallyCream,inner sep=2.2pt,font=\sffamily\bfseries\scriptsize] (char) {#1};}\hspace{2pt}}
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+options(width = 75, digits = 4, OutDec = ",")
+knitr::opts_chunk$set(
+  fig.width = 5.4,
+  fig.height = 3.5,
+  fig.align = "center",
+  dev = "pdf",
+  dev.args = list(bg = "#FCF6EE")
+)
+
+set.seed(23)
+
+caminho_csv <- if (file.exists("./../base-dados.csv")) {
+  "./../base-dados.csv"
+} else {
+  "base-dados.csv"
+}
+
+dados_brutos <- read.csv(caminho_csv, check.names = FALSE,
+                         stringsAsFactors = FALSE)
+
+df <- data.frame(
+  id            = dados_brutos[["Submission ID"]],
+  tela_min      = as.numeric(dados_brutos[["tela_min_dia"]]),
+  tela_h        = as.numeric(dados_brutos[["tela_min_dia"]]) / 60,
+  sono_min      = as.numeric(dados_brutos[["sono_min_noite"]]),
+  sono_h        = as.numeric(dados_brutos[["sono_min_noite"]]) / 60,
+  gad7          = as.numeric(dados_brutos[["gad7_total"]]),
+  gad7_faixa    = factor(dados_brutos[["gad7_faixa"]],
+                         levels = c("Mínimos", "Leves", "Moderados", "Graves")),
+  ipaq_3        = factor(ifelse(dados_brutos[["ipaq_classificacao"]] %in%
+                                  c("Sedentário", "Irregularmente ativo A",
+                                    "Irregularmente ativo B"),
+                                "Insuficientemente ativo",
+                                dados_brutos[["ipaq_classificacao"]]),
+                         levels = c("Insuficientemente ativo", "Ativo", "Muito ativo")),
+  ipaq_min_sem  = as.numeric(dados_brutos[["ipaq_min_semana"]]),
+  cam_dias      = as.numeric(dados_brutos[["ipaq_cam_dias"]]),
+  mod_dias      = as.numeric(dados_brutos[["ipaq_mod_dias"]]),
+  vig_dias      = as.numeric(dados_brutos[["ipaq_vig_dias"]]),
+  cam_min_dia   = as.numeric(dados_brutos[["ipaq_cam_min_dia"]]),
+  mod_min_dia   = as.numeric(dados_brutos[["ipaq_mod_min_dia"]]),
+  vig_min_dia   = as.numeric(dados_brutos[["ipaq_vig_min_dia"]]),
+  idade         = as.numeric(dados_brutos[["Qual é a sua idade em anos completos?"]]),
+  sexo_raw      = factor(dados_brutos[["Qual é o seu sexo?"]],
+                         levels = c("Feminino", "Masculino", "Prefiro não informar")),
+  sexo          = factor(ifelse(dados_brutos[["Qual é o seu sexo?"]] == "Prefiro não informar",
+                                NA, dados_brutos[["Qual é o seu sexo?"]]),
+                         levels = c("Feminino", "Masculino")),
+  disciplinas   = as.numeric(
+    dados_brutos[["Quantas disciplinas você está cursando neste semestre?"]]
+  ),
+  fonte_tela    = factor(dados_brutos[["De onde veio a informação acima?"]]),
+  sentado_sem_h = as.numeric(
+    dados_brutos[["Sentado em dia de semana · horas"]]
+  ) + as.numeric(
+    dados_brutos[["Sentado em dia de semana · minutos"]]
+  ) / 60,
+  sentado_fds_h = as.numeric(
+    dados_brutos[["Sentado em dia de fim de semana · horas"]]
+  ) + as.numeric(
+    dados_brutos[["Sentado em dia de fim de semana · minutos"]]
+  ) / 60
+)
+
+df$ipaq_met <- 3.3 * (df$cam_dias * df$cam_min_dia) +
+               4.0 * (df$mod_dias * df$mod_min_dia) +
+               8.0 * (df$vig_dias * df$vig_min_dia)
+
+df$tela_faixa <- cut(df$tela_h, breaks = c(0, 5, 7, Inf),
+                     labels = c("Baixo (<5h)", "Moderado (5-7h)", "Elevado (>7h)"))
+
+df$gad7_3 <- factor(ifelse(df$gad7_faixa %in% c("Moderados", "Graves"),
+                           "Mod./Graves", as.character(df$gad7_faixa)),
+                    levels = c("Mínimos", "Leves", "Mod./Graves"))
+
+df_sexo <- subset(df, !is.na(sexo))
+
+levene_mediana <- function(y, grupo) {
+  grupo <- factor(grupo)
+  desvios <- abs(y - ave(y, grupo, FUN = median))
+  anova(lm(desvios ~ grupo))
+}
+
+calcular_vif <- function(mod) {
+  X <- model.matrix(mod)[, -1, drop = FALSE]
+  diag(solve(cor(X)))
+}
+```
+
+## 1. Motivação do Estudo
+
+::::: columns
+::: {.column width="46.5%"}
+### \tallykey{1} Uso Massivo de Smartphones
+
+-   O celular integra a rotina acadêmica, social e de lazer da quase totalidade dos universitários.
+-   **Yin et al. (2025)** ($N = 17.713$): média objetiva de $49{,}1\text{ h/semana}$ ($\approx 7\text{ h/dia}$) de tela.
+-   No Brasil, a estimativa de conexão diária atinge $\approx 9\text{ h/dia}$ (*Bain & Company, 2025*).
+:::
+
+::: {.column width="46.5%"}
+### \tallykey{2} Ansiedade e Sono na Graduação
+
+-   **Prevalência global**: $24{,}5\%$ dos universitários em 40 países apresentam sintomas de ansiedade (*Paula et al., 2020*).
+-   **Contexto brasileiro** (*Souza et al., 2022*):
+    -   $37{,}75\%$ com ansiedade clinicamente relevante;
+    -   $63{,}5\%$ com má qualidade do sono.
+:::
+:::::
+
+## 2. O Papel do Sono e da Atividade Física
+
+::::: columns
+::: {.column width="46.5%"}
+### \tallykey{3} O Sono como Elo Mediador
+
+-   Metanálises apontam o **sono** como o principal elo entre uso excessivo de telas e queda no bem-estar (*Sunday et al., 2021; Kuş, 2025*).
+-   A exposição prolongada — sobretudo noturna — associa-se à menor duração e pior qualidade do sono (*Muhammad et al., 2021; Arshad et al., 2021*).
+:::
+
+::: {.column width="46.5%"}
+### \tallykey{4} Atividade Física como Fator Protetor
+
+-   O estilo de vida ativo pode atenuar os efeitos deletérios do comportamento sedentário.
+-   **Boraita et al. (2025)**: universitários fisicamente ativos apresentam **menor tempo de tela**, **melhor sono** e **menor ansiedade**.
+:::
+:::::
+
+## 3. Objetivos da Pesquisa
+
+### Objetivo Geral
+
+Avaliar se o tempo diário de tela está associado ao sono e à ansiedade dos alunos da nossa turma de MAE0316, ponderando o papel da atividade física e de covariáveis acadêmicas e sociodemográficas.
+
+\vspace{0.15cm}
+
+### Objetivos Específicos
+
+-   \tallykey{A} Comparar as **horas médias de sono** entre os níveis de tempo diário de tela (ANOVA).
+-   \tallykey{B} Comparar o **GAD-7** entre níveis de tela e avaliar sua relação contínua (isolada e ajustada pelo sono).
+-   \tallykey{C} Verificar a **associação direta entre horas de sono e ansiedade (GAD-7)**.
+-   \tallykey{D} Analisar o papel da **atividade física (IPAQ)** e testar sua **interação** com o tempo de tela.
+-   \tallykey{E} Avaliar se os efeitos **persistem após ajuste por covariáveis** (disciplinas, sexo, idade e turno).
+
+## 4. Delineamento e Coleta
+
+::::: columns
+::: {.column width="46.5%"}
+### \tallykey{1} Delineamento e Amostra
+
+-   **Estudo observacional transversal** (*Gil, 2017; Montgomery, 2017*): variáveis observadas sem alocação aleatória.
+-   **População e Amostra**: estudantes de MAE0316 (IME-USP), amostragem com $N = 32$ participantes consentidos via TCLE (***Termo de Consentimento Livre e Esclarecido***).
+:::
+
+::: {.column width="46.5%"}
+### \tallykey{2} Coleta e Recursos
+
+-   **Coleta**: plataforma **Tally** entre `16/11` e `18/11/2026`.
+-   **Recursos**: softwares livres (**R, Quarto, Tally, Netlify**), sem custos financeiros.
+:::
+:::::
+
+## 5. Instrumentos de Medida e Controle de Qualidade
+
+::::: columns
+::: {.column width="46.5%"}
+### \tallykey{1} Registro Objetivo do Tempo de Tela
+
+Instrução para consultar o painel do sistema operacional nos últimos 7 dias:
+
+-   $56{,}25\%$ ($n=18$): *Bem-estar digital* (Android);
+-   $37{,}50\%$ ($n=12$): *Tempo de Uso* (iPhone);
+-   $6{,}25\%$ ($n=2$): estimativa ($93{,}75\%$ de medida objetiva).
+:::
+
+::: {.column width="46.5%"}
+### \tallykey{2} Instrumentos Validados
+
+-   **IPAQ Versão Curta** (*Matsudo et al., 2001*): frequência e duração semanal de caminhada, atividades moderadas, vigorosas e tempo sentado.
+-   **GAD-7** (*Spitzer et al., 2006; Moreno et al., 2016*): 7 itens de ansiedade nas últimas 2 semanas (escore de $0$ a $21$ pontos).
+:::
+:::::
+
+## 6. Operacionalização das Variáveis Principais
+
+::::: columns
+::: {.column width="46.5%"}
+### \tallykey{1} Tempo de Tela e Sono
+
+-   **Tempo de Tela**:
+    -   Contínuo: `tela_h` (horas/dia);
+    -   Categórico (`tela_faixa`, grupos balanceados):
+        -   **Baixo (`<5h`)**: $n = 10$;
+        -   **Moderado (`5–7h`)**: $n = 12$;
+        -   **Elevado (`>7h`)**: $n = 10$.
+-   **Sono**: duração noturna (`sono_h`).
+:::
+
+::: {.column width="46.5%"}
+### \tallykey{2} Ansiedade e Atividade Física
+
+-   **Ansiedade (GAD-7)**: escore contínuo ($0\text{--}21$) e faixas clínicas (*Mínimos*, *Leves*, *Moderados*, *Graves*).
+-   **Atividade Física (IPAQ)**:
+    -   **Insuficientemente ativo**: $n = 9$;
+    -   **Ativo**: $n = 17$;
+    -   **Muito ativo**: $n = 6$;
+    -   Contínuo: `ipaq_min_sem` e **`ipaq_met`** ($\text{MET-min/sem}$).
+:::
+:::::
+
+### Cálculo do Gasto Metabólico Semanal ($\text{MET-min/sem}$)
+
+$$\text{MET-min/sem} = 3{,}3 \times \text{min}_{\text{caminhada}} + 4{,}0 \times \text{min}_{\text{moderada}} + 8{,}0 \times \text{min}_{\text{vigorosa}}$$
+
+## 7. Covariáveis e Plano de Análise Estatística ($\alpha = 0{,}05$)
+
+::::: columns
+::: {.column width="46.5%"}
+### \tallykey{1} Tratamento das Covariáveis
+
+-   **Turno**: $100\%$ da amostra ($N=32$) é do turno **Diurno** (variância zero $\rightarrow$ controle por homogeneidade).
+-   **Sexo (`sexo`)**: *Feminino* ($n=7$) e *Masculino* ($n=24$); 1 resposta *"Prefiro não informar"* tratada como `NA` ($N=31$).
+-   **Tempo Sentado**: excluído dos modelos múltiplos por medir o domínio sedentário do próprio IPAQ ($r = -0{,}458$).
+:::
+
+::: {.column width="46.5%"}
+### \tallykey{2} Modelos e Testes de Pressupostos
+
+-   **Comparação de grupos**: ANOVA de 1 fator, pós-teste de **Tukey HSD** e **Kruskal-Wallis**.
+-   **Modelagem contínua**: Regressão Linear, **ANCOVA** e Interação.
+-   **Seleção e Diagnóstico**: **Stepwise AIC**, **VIF** (multicolinearidade), **Shapiro-Wilk**, **Levene (mediana)** e análise de sensibilidade.
+:::
+:::::
+
+## 8. Caracterização Descritiva da Amostra ($N = 32$)
+
+### Indicadores da Turma
+
+Tela $= \mathbf{6{,}18\text{ h/dia}}$ ($\text{DP}=2{,}29\text{h}$) $\cdot$ Sono $= \mathbf{6{,}52\text{ h/noite}}$ ($\text{DP}=0{,}98\text{h}$) $\cdot$ GAD-7 $= \mathbf{7{,}41\text{ pts}}$ ($28{,}1\%$ mod./grave) $\cdot$ $71{,}9\%$ ativos/muito ativos.
+
+\vspace{0.15cm}
+\footnotesize
+
+```{r}
+vars_desc <- c("tela_h", "sono_h", "gad7", "ipaq_min_sem", "ipaq_met",
+               "sentado_sem_h", "sentado_fds_h", "idade", "disciplinas")
+nomes_desc <- c("Tempo de tela (h/dia)", "Sono (h/noite)", "Ansiedade (GAD-7, 0-21)",
+                "Ativ. física (min/sem)", "Gasto metabólico (MET-min/sem)",
+                "Sentado dia útil (h/dia)", "Sentado fim de sem. (h/dia)",
+                "Idade (anos)", "Disciplinas cursadas")
+
+tab_desc <- do.call(rbind, lapply(seq_along(vars_desc), function(i) {
+  x <- df[[vars_desc[i]]]
+  data.frame(
+    Variavel = nomes_desc[i],
+    Media    = mean(x),
+    DP       = sd(x),
+    Mediana  = median(x),
+    Q1       = quantile(x, 0.25),
+    Q3       = quantile(x, 0.75),
+    Min      = min(x),
+    Max      = max(x)
+  )
+}))
+
+knitr::kable(tab_desc, digits = 2, row.names = FALSE, booktabs = TRUE,
+             col.names = c("Variável Quantitativa", "Média", "DP", "Mediana", "Q1", "Q3", "Mín", "Máx"))
+```
+
+\normalsize
+
+## 9. Objetivo A: Horas de Sono por Nível de Tempo de Tela
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-width: 5.0
+#| fig-height: 3.4
+par(mar = c(3.6, 3.8, 2.0, 0.8), mgp = c(2.1, 0.65, 0), bg = "#FCF6EE",
+    col.axis = "#382A24", col.lab = "#382A24", col.main = "#382A24", fg = "#594A42")
+boxplot(sono_h ~ tela_faixa, data = df,
+        col = c("#F3DFC8", "#E09F5A", "#B55A30"), border = "#382A24",
+        xlab = "Nível de tempo de tela", ylab = "Horas de sono por noite",
+        main = "Sono por Nível de Tela (ANOVA p = 0,7735)",
+        cex.main = 0.95, cex.axis = 0.85)
+points(1:3, tapply(df$sono_h, df$tela_faixa, mean), pch = 19, col = "#FFFDF9", cex = 1.3)
+points(1:3, tapply(df$sono_h, df$tela_faixa, mean), pch = 1,  col = "#382A24", cex = 1.3, lwd = 2)
+```
+:::
+
+::: {.column width="45%"}
+### \tallykey{A} Resultado da ANOVA do Sono
+
+-   **Médias muito próximas**:
+
+    -   Baixo (`<5h`): $6{,}54\text{ h}$ ($\text{DP}=0{,}97\text{h}$);
+
+    -   Moderado (`5–7h`): $6{,}38\text{ h}$ ($\text{DP}=0{,}67\text{h}$);
+
+    -   Elevado (`>7h`): $6{,}68\text{ h}$ ($\text{DP}=1{,}32\text{h}$).
+
+-   **ANOVA**: $F_{2,29} = 0{,}259$, $p = 0{,}7735$ (Kruskal-Wallis $p = 0{,}8945$).
+
+-   **Pressupostos atendidos**: Shapiro-Wilk $p = 0{,}4291$ \| Levene $p = 0{,}3163$.
+:::
+:::::
+
+## 10. Objetivo B: Ansiedade por Nível de Tela (ANOVA)
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-width: 5.0
+#| fig-height: 3.4
+par(mar = c(3.6, 3.8, 2.0, 0.8), mgp = c(2.1, 0.65, 0), bg = "#FCF6EE",
+    col.axis = "#382A24", col.lab = "#382A24", col.main = "#382A24", fg = "#594A42")
+boxplot(gad7 ~ tela_faixa, data = df,
+        col = c("#F3DFC8", "#E09F5A", "#B55A30"), border = "#382A24",
+        xlab = "Nível de tempo de tela", ylab = "Escore de ansiedade (GAD-7)",
+        main = "GAD-7 por Nível de Tela (ANOVA p = 0,0485*)",
+        cex.main = 0.95, cex.axis = 0.85)
+points(1:3, tapply(df$gad7, df$tela_faixa, mean), pch = 19, col = "#FFFDF9", cex = 1.3)
+points(1:3, tapply(df$gad7, df$tela_faixa, mean), pch = 1,  col = "#382A24", cex = 1.3, lwd = 2)
+```
+:::
+
+::: {.column width="45%"}
+### \tallykey{B} Resultado da ANOVA do GAD-7
+
+-   **Queda progressiva nas médias**:
+
+    -   Baixo (`<5h`): $9{,}90\text{ pts}$ ($\text{DP}=5{,}49$);
+
+    -   Moderado (`5–7h`): $7{,}42\text{ pts}$ ($\text{DP}=4{,}50$);
+
+    -   Elevado (`>7h`): $4{,}90\text{ pts}$ ($\text{DP}=2{,}38$).
+
+-   **ANOVA**: $F_{2,29} = 3{,}365$, $p = 0{,}0485^* < \alpha = 0{,}05$.
+
+-   **Pressupostos atendidos**: Shapiro-Wilk $p = 0{,}3751$ \| Levene $p = 0{,}0650$.
+:::
+:::::
+
+## 11. Objetivo B: Comparações Múltiplas (Tukey HSD)
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-width: 5.0
+#| fig-height: 3.4
+tk <- as.data.frame(TukeyHSD(aov(gad7 ~ tela_faixa, data = df))$tela_faixa)
+rotulos_tk <- c("Moderado\nvs. Baixo", "Elevado\nvs. Baixo*", "Elevado\nvs. Moderado")
+cores_tk   <- ifelse(tk[["p adj"]] < 0.05, "#B55A30", "#7A6A60")
+
+par(mar = c(3.6, 5.4, 2.0, 0.9), mgp = c(2.1, 0.65, 0), bg = "#FCF6EE",
+    col.axis = "#382A24", col.lab = "#382A24", col.main = "#382A24", fg = "#594A42")
+plot(tk$diff, 3:1, xlim = c(-10.5, 3.0), ylim = c(0.5, 3.5),
+     yaxt = "n", pch = 19, col = cores_tk, cex = 1.4,
+     xlab = "Diferença média no GAD-7 (IC 95%)", ylab = "",
+     main = "Tukey HSD: Diferenças entre Faixas de Tela", cex.main = 0.92)
+abline(v = 0, lty = 2, lwd = 1.6, col = "#382A24")
+segments(tk$lwr, 3:1, tk$upr, 3:1, col = cores_tk, lwd = 2.6)
+segments(tk$lwr, (3:1) - 0.1, tk$lwr, (3:1) + 0.1, col = cores_tk, lwd = 2.0)
+segments(tk$upr, (3:1) - 0.1, tk$upr, (3:1) + 0.1, col = cores_tk, lwd = 2.0)
+axis(2, at = 3:1, labels = rotulos_tk, las = 1, cex.axis = 0.80)
+grid(nx = NULL, ny = NA, col = "#E6D2C4")
+```
+:::
+
+::: {.column width="45%"}
+### \tallykey{B} Pós-Teste de Tukey HSD
+
+\scriptsize
+
+```{r}
+tab_tk <- data.frame(
+  Comp = c("Mod. vs. Baixo", "Elev. vs. Baixo*", "Elev. vs. Mod."),
+  Dif  = tk$diff,
+  IC95 = sprintf("[%.2f; %.2f]", tk$lwr, tk$upr),
+  p_aj = tk[["p adj"]]
+)
+knitr::kable(tab_tk, digits = c(0, 2, 0, 4), row.names = FALSE, booktabs = TRUE,
+             col.names = c("Comparação", "Dif.", "IC 95%", "p aj."))
+```
+
+\footnotesize
+
+-   **Diferença significativa**: apenas **Elevado (`>7h`) vs. Baixo (`<5h`)** ($-5{,}00\text{ pts}$, $p_{\text{aj}} = 0{,}0380^*$).
+-   O intervalo $[-9{,}76;\, -0{,}24]$ não cruza o zero; as demais comparações não diferem a $5\%$.
+:::
+:::::
+
+## 12. Objetivo B: Ansiedade por Nível de Tela (Regressão)
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-width: 5.0
+#| fig-height: 3.4
+m_gad_tela <- lm(gad7 ~ tela_h, data = df)
+par(mar = c(3.6, 3.8, 2.0, 0.8), mgp = c(2.1, 0.65, 0), bg = "#FCF6EE",
+    col.axis = "#382A24", col.lab = "#382A24", col.main = "#382A24", fg = "#594A42")
+plot(df$tela_h, df$gad7, pch = 19, col = "#B55A30", cex = 1.25,
+     xlab = "Tempo de tela diário (horas)", ylab = "Escore GAD-7",
+     main = "GAD-7 vs. Tempo de Tela (r = -0,406, p = 0,0213*)", cex.main = 0.92)
+abline(m_gad_tela, lwd = 2.4, col = "#382A24")
+grid(col = "#E6D2C4")
+```
+:::
+
+::: {.column width="45%"}
+### \tallykey{B} Regressão Simples e Múltipla
+
+-   **Modelo simples (`gad7 ~ tela_h`)**:
+    -   $\hat{\beta} = \mathbf{-0{,}821\text{ pts/h}}$ ($t = -2{,}430$, $p = 0{,}0213^*$);
+    -   Explica $R^2 = 16{,}44\%$ da variância do GAD-7.
+-   **Mantendo o sono constante (`gad7 ~ tela_h + sono_h`)**:
+    -   O efeito da tela **persiste significativo**: $\hat{\beta}_{\text{tela}} = \mathbf{-0{,}754\text{ pts/h}}$ ($p = 0{,}0316^*$);
+    -   Modelo global: $F_{2,29} = 4{,}225$, $p = 0{,}0245^*$ ($R^2 = 22{,}56\%$).
+:::
+:::::
+
+## 13. Objetivo C: Horas de Sono por Faixa de Ansiedade (ANOVA)
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-width: 5.0
+#| fig-height: 3.4
+par(mar = c(3.6, 3.8, 2.0, 0.8), mgp = c(2.1, 0.65, 0), bg = "#FCF6EE",
+    col.axis = "#382A24", col.lab = "#382A24", col.main = "#382A24", fg = "#594A42")
+boxplot(sono_h ~ gad7_3, data = df,
+        col = c("#F3DFC8", "#E09F5A", "#B55A30"), border = "#382A24",
+        xlab = "Faixa clínica de ansiedade (GAD-7)", ylab = "Horas de sono por noite",
+        main = "Sono por Faixa de GAD-7 (ANOVA p = 0,1530)",
+        cex.main = 0.92, cex.axis = 0.85)
+points(1:3, tapply(df$sono_h, df$gad7_3, mean), pch = 19, col = "#FFFDF9", cex = 1.3)
+points(1:3, tapply(df$sono_h, df$gad7_3, mean), pch = 1,  col = "#382A24", cex = 1.3, lwd = 2)
+```
+:::
+
+::: {.column width="45%"}
+### \tallykey{C} Resultado da ANOVA do Sono por GAD-7
+
+-   **Médias por faixa clínica** (*Moderados* + *Graves* agrupados):
+    -   Mínimos ($n=11$): $6{,}98\text{ h}$ ($\text{DP}=1{,}07\text{h}$);
+    -   Leves ($n=12$): $6{,}29\text{ h}$ ($\text{DP}=0{,}97\text{h}$);
+    -   Mod./Graves ($n=9$): $6{,}26\text{ h}$ ($\text{DP}=0{,}73\text{h}$).
+-   **ANOVA**: $F_{2,29} = 2{,}004$, $p = 0{,}1530$ (Kruskal-Wallis $p = 0{,}2284$).
+-   **Pressupostos atendidos**: Shapiro-Wilk $p = 0{,}0548$ \| Levene $p = 0{,}5246$.
+:::
+:::::
+
+## 14. Objetivo C: Ansiedade por Horas de Sono (Regressão)
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-width: 5.0
+#| fig-height: 3.4
+m_gad_sono <- lm(gad7 ~ sono_h, data = df)
+par(mar = c(3.6, 3.8, 2.0, 0.8), mgp = c(2.1, 0.65, 0), bg = "#FCF6EE",
+    col.axis = "#382A24", col.lab = "#382A24", col.main = "#382A24", fg = "#594A42")
+plot(df$sono_h, df$gad7, pch = 19, col = "#D68B45", cex = 1.25,
+     xlab = "Horas de sono por noite", ylab = "Escore GAD-7",
+     main = "GAD-7 vs. Horas de Sono (r = -0,299, p = 0,0964.)", cex.main = 0.92)
+abline(m_gad_sono, lwd = 2.4, col = "#382A24")
+grid(col = "#E6D2C4")
+```
+:::
+
+::: {.column width="45%"}
+### \tallykey{C} Regressão Simples e Múltipla
+
+-   **Modelo simples (`gad7 ~ sono_h`)**:
+    -   $\hat{\beta} = \mathbf{-1{,}414\text{ pts/h}}$ ($t = -1{,}716$, $p = 0{,}0964$);
+    -   Explica $R^2 = 8{,}94\%$ da variância do GAD-7 ($+1{,}41\text{ pts}$ por hora a menos de sono).
+-   **Mantendo a tela constante (`gad7 ~ sono_h + tela_h`)**:
+    -   Tendência inversa mantida: $\hat{\beta}_{\text{sono}} = \mathbf{-1{,}180\text{ pts/h}}$ ($t = -1{,}514$, $p = 0{,}1410$);
+    -   Modelo global: $F_{2,29} = 4{,}225$, $p = 0{,}0245^*$ ($R^2 = 22{,}56\%$).
+:::
+:::::
+
+## 15. Objetivo D: Perfil por Nível de Atividade Física (IPAQ)
+
+\footnotesize
+
+```{r}
+tab_ipaq <- do.call(rbind, lapply(levels(df$ipaq_3), function(niv) {
+  sub <- subset(df, ipaq_3 == niv)
+  data.frame(
+    Nivel_IPAQ = niv,
+    n          = nrow(sub),
+    Media_Tela = mean(sub$tela_h),
+    DP_Tela    = sd(sub$tela_h),
+    Media_Sono = mean(sub$sono_h),
+    DP_Sono    = sd(sub$sono_h),
+    Media_GAD7 = mean(sub$gad7),
+    DP_GAD7    = sd(sub$gad7)
+  )
+}))
+
+knitr::kable(tab_ipaq, digits = 2, row.names = FALSE, booktabs = TRUE,
+             col.names = c("Classificação IPAQ (Matsudo et al., 2001)", "n",
+                           "Média Tela (h)", "DP Tela", "Média Sono (h)", "DP Sono",
+                           "Média GAD-7", "DP GAD-7"))
+```
+
+\normalsize
+
+### \tallykey{D} Os Mais Ativos Usam Menos Celular? Sim ($p < 0{,}05$)!
+
+-   O tempo de tela cai de $6{,}96\text{ h/dia}$ (*Insuf. ativos*) para $4{,}69\text{ h/dia}$ (*Muito ativos*: $-2{,}27\text{ h/dia}$, Mann-Whitney $p = 0{,}0379^*$).
+-   **Correlação contínua significativa**: $r = -0{,}352$ ($p = 0{,}0482^*$) com minutos/sem e $r = -0{,}375$ ($p = 0{,}0344^*$) com gasto em MET-min/sem.
+
+## 16. Objetivo D: Ansiedade por IPAQ — ANOVA e Diagnóstico
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-width: 5.0
+#| fig-height: 3.4
+m_gad_ipaq_iso <- aov(gad7 ~ ipaq_3, data = df)
+par(mar = c(3.6, 3.8, 2.0, 0.8), mgp = c(2.1, 0.65, 0), bg = "#FCF6EE",
+    col.axis = "#382A24", col.lab = "#382A24", col.main = "#382A24", fg = "#594A42")
+qqnorm(residuals(m_gad_ipaq_iso), pch = 19, col = "#B55A30", cex = 1.2,
+       xlab = "Quantis teóricos normais", ylab = "Resíduos da ANOVA",
+       main = "Q-Q Plot: GAD-7 ~ IPAQ (Shapiro p = 0,0133*)", cex.main = 0.90)
+qqline(residuals(m_gad_ipaq_iso), col = "#382A24", lwd = 2.2)
+grid(col = "#E6D2C4")
+```
+:::
+
+::: {.column width="45%"}
+### \tallykey{D} Falha na Normalidade dos Resíduos
+
+-   **ANOVA isolada (`gad7 ~ ipaq_3`)**: $F_{2,29} = 0{,}576$, $p = 0{,}5682$.
+-   **Diagnóstico de pressupostos**:
+    -   Levene (homocedasticidade): $p = 0{,}4557$ (atendido);
+    -   **Shapiro-Wilk (normalidade)**: $W = 0{,}9128$, **$p = 0{,}0133^* < 0{,}05$** (**violado!**).
+-   **Conduta**: como a normalidade falha na ANOVA isolada, aplicamos o **teste não paramétrico (Kruskal-Wallis)** e, depois, a **ANCOVA** incluindo o tempo de tela.
+:::
+:::::
+
+## 17. Objetivo D: Ansiedade por IPAQ (Kruskal-Wallis)
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-width: 5.0
+#| fig-height: 3.4
+par(mar = c(3.6, 3.8, 2.0, 0.8), mgp = c(2.1, 0.65, 0), bg = "#FCF6EE",
+    col.axis = "#382A24", col.lab = "#382A24", col.main = "#382A24", fg = "#594A42")
+boxplot(gad7 ~ ipaq_3, data = df,
+        col = c("#F3DFC8", "#E09F5A", "#B55A30"), border = "#382A24",
+        names = c("Insuf. ativo", "Ativo", "Muito ativo"),
+        xlab = "Classificação IPAQ", ylab = "Escore de ansiedade (GAD-7)",
+        main = "GAD-7 por IPAQ (Kruskal-Wallis p = 0,4523)",
+        cex.main = 0.92, cex.axis = 0.85)
+points(1:3, tapply(df$gad7, df$ipaq_3, mean), pch = 19, col = "#FFFDF9", cex = 1.3)
+points(1:3, tapply(df$gad7, df$ipaq_3, mean), pch = 1,  col = "#382A24", cex = 1.3, lwd = 2)
+```
+:::
+
+::: {.column width="45%"}
+### \tallykey{D} Teste Não Paramétrico (Kruskal-Wallis)
+
+-   **Medianas (IIQ) por nível do IPAQ**:
+    -   Insuf. ativo ($n=9$): $8{,}0\text{ pts}$ ($\text{IIQ}=6{,}00$);
+    -   Ativo ($n=17$): $6{,}0\text{ pts}$ ($\text{IIQ}=5{,}00$);
+    -   Muito ativo ($n=6$): $5{,}5\text{ pts}$ ($\text{IIQ}=8{,}25$).
+-   **Kruskal-Wallis**: $H = 1{,}587$ ($\text{gl}=2$), $p = 0{,}4523$.
+-   **Conclusão isolada**: sem diferença significativa entre grupos — mas como os mais ativos usam menos celular, controlamos por `tela_h` na **ANCOVA** a seguir.
+:::
+:::::
+
+## 18. Objetivo D: ANCOVA de Tela e IPAQ na Ansiedade
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-width: 5.0
+#| fig-height: 3.4
+m_gad_ancova <- lm(gad7 ~ tela_h + ipaq_3, data = df)
+par(mar = c(3.6, 3.8, 2.0, 0.8), mgp = c(2.1, 0.65, 0), bg = "#FCF6EE",
+    col.axis = "#382A24", col.lab = "#382A24", col.main = "#382A24", fg = "#594A42")
+cores_ipaq <- c("#7A6A60", "#D68B45", "#B55A30")
+pchs_ipaq  <- c(15, 17, 19)
+
+plot(df$tela_h, df$gad7,
+     col = cores_ipaq[as.numeric(df$ipaq_3)],
+     pch = pchs_ipaq[as.numeric(df$ipaq_3)], cex = 1.25,
+     xlab = "Tempo de tela diário (horas)", ylab = "Escore GAD-7",
+     main = "ANCOVA Aditiva: GAD-7 ~ Tela + IPAQ", cex.main = 0.92)
+cf_g <- coef(m_gad_ancova)
+abline(a = cf_g[1],           b = cf_g[2], col = cores_ipaq[1], lwd = 2.2, lty = 3)
+abline(a = cf_g[1] + cf_g[3], b = cf_g[2], col = cores_ipaq[2], lwd = 2.2, lty = 2)
+abline(a = cf_g[1] + cf_g[4], b = cf_g[2], col = cores_ipaq[3], lwd = 2.2, lty = 1)
+legend("topright", legend = c("Insuf. ativo", "Ativo (-2,59 pts)", "Muito ativo (-2,69 pts)"),
+       col = cores_ipaq, pch = pchs_ipaq, lty = c(3, 2, 1), lwd = 2, cex = 0.72, bty = "n")
+grid(col = "#E6D2C4")
+```
+:::
+
+::: {.column width="45%"}
+### \tallykey{D} Efeito Aditivo no GAD-7
+
+-   **Sem interação `tela_h:ipaq_3`** ($F_{2,26} = 1{,}148$, $p = 0{,}3329$): as retas nos 3 grupos são paralelas.
+-   **Restauração da normalidade**: o modelo isolado `gad7 ~ ipaq_3` violava Shapiro ($p=0{,}0133$), mas a **ANCOVA aditiva** restabelece a normalidade (**Shapiro** $p = 0{,}3608$, Levene $p = 0{,}4557$).
+-   **Efeito ajustado**: `tela_h` tem $\hat{\beta} = \mathbf{-0{,}938}$ ($p = 0{,}0140^*$) e ativos têm $\approx -2{,}6\text{ pts}$ no GAD-7.
+:::
+:::::
+
+## 19. Objetivo D: Interação entre Tela e IPAQ no Sono
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-width: 5.0
+#| fig-height: 3.4
+par(mar = c(3.6, 3.8, 2.0, 0.8), mgp = c(2.1, 0.65, 0), bg = "#FCF6EE",
+    col.axis = "#382A24", col.lab = "#382A24", col.main = "#382A24", fg = "#594A42")
+plot(df$tela_h, df$sono_h,
+     col = cores_ipaq[as.numeric(df$ipaq_3)],
+     pch = pchs_ipaq[as.numeric(df$ipaq_3)], cex = 1.25,
+     xlab = "Tempo de tela diário (horas)", ylab = "Horas de sono por noite",
+     main = "Interação Significativa: Sono ~ Tela * IPAQ", cex.main = 0.92)
+for (i in 1:3) {
+  sub_i <- subset(df, as.numeric(ipaq_3) == i)
+  abline(lm(sono_h ~ tela_h, data = sub_i),
+         col = cores_ipaq[i], lwd = 2.4, lty = c(3, 2, 1)[i])
+}
+legend("topright",
+       legend = c("Insuf. ativo (-1 min/h)", "Ativo (+11 min/h)", "Muito ativo (-27 min/h*)"),
+       col = cores_ipaq, pch = pchs_ipaq, lty = c(3, 2, 1), lwd = 2, cex = 0.72, bty = "n")
+grid(col = "#E6D2C4")
+```
+:::
+
+::: {.column width="45%"}
+### \tallykey{D} Interação Significativa no Sono!
+
+-   **Teste de interação**: $F_{2,26} = 3{,}062$ ($p = 0{,}0640$ nos 3 níveis) e $F_{1,28} = 4{,}882$ ($p = 0{,}0355^*$) destacando o grupo **Muito ativo**.
+-   **Pressupostos**: Shapiro $p = 0{,}9516$ \| Levene $p = 0{,}9213$.
+-   **Interpretação (*Simple Slopes*)**: nos **Muito ativos** ($\approx 15{,}8\text{ h/sem}$ de treino), cada hora extra de tela reduz o sono em $-27\text{ min/noite}$ ($r = -0{,}690$).
+:::
+:::::
+
+## 20. Objetivo E: Ajuste por Covariáveis e Stepwise AIC
+
+\footnotesize
+
+```{r}
+m_gad_faixa_cov <- lm(gad7 ~ tela_faixa + sono_h + ipaq_3 + disciplinas +
+                        sexo + idade, data = df_sexo)
+m_gad_cont_cov  <- lm(gad7 ~ tela_h + sono_h + ipaq_3 + disciplinas +
+                        sexo + idade, data = df_sexo)
+m_gad_final     <- step(m_gad_cont_cov, trace = 0)
+
+s_fin <- summary(m_gad_final)$coefficients
+ic_fin <- confint(m_gad_final)
+tab_fin <- data.frame(
+  Termo      = c("Intercepto", "Tempo de tela (h/dia)", "Horas de sono (h/noite)", "Sexo: Masculino (vs. Fem.)"),
+  Estimativa = s_fin[, 1],
+  EP         = s_fin[, 2],
+  Estat_t    = s_fin[, 3],
+  IC95       = sprintf("[%.2f; %.2f]", ic_fin[, 1], ic_fin[, 2]),
+  p_valor    = s_fin[, 4]
+)
+knitr::kable(tab_fin, digits = 3, row.names = FALSE, booktabs = TRUE,
+             col.names = c("Termo (Modelo Final Stepwise AIC)", "Estimativa", "Erro Padrão", "Estat. t", "IC 95%", "p-valor"))
+```
+
+\normalsize
+
+### \tallykey{E} Persistência do Efeito do Tempo de Tela
+
+-   **Modelo contínuo selecionado via Stepwise AIC**: converge para **`gad7 ~ tela_h + sono_h + sexo`** ($F_{3,27} = 3{,}316$, $p = 0{,}0348^*$, $R^2 = 26{,}92\%$), com **`tela_h` significativo (**$p = 0{,}0141^*$).
+
+## 21. Objetivo E: Análise de Multicolinearidade (VIF)
+
+::::: columns
+::: {.column width="52%"}
+\footnotesize
+
+```{r}
+m_com_sentado <- lm(gad7 ~ tela_h + sono_h + ipaq_3 + disciplinas + sexo +
+                      idade + sentado_sem_h + sentado_fds_h, data = df_sexo)
+vif_s <- calcular_vif(m_com_sentado)
+vif_c <- calcular_vif(m_gad_cont_cov)
+vif_f <- calcular_vif(m_gad_final)
+nms   <- names(vif_s)
+
+tab_vif_slide <- data.frame(
+  Variavel = c("Tempo de tela (h/dia)", "Sono (h/noite)", "IPAQ: Ativo", "IPAQ: Muito ativo",
+               "Nº de disciplinas", "Sexo: Masculino", "Idade (anos)",
+               "Sentado dia útil", "Sentado fim de sem."),
+  Com_Sent = as.numeric(vif_s[nms]),
+  Sem_Sent = as.numeric(vif_c[nms]),
+  Final    = as.numeric(vif_f[nms])
+)
+knitr::kable(tab_vif_slide, digits = 2, row.names = FALSE, booktabs = TRUE,
+             col.names = c("Preditor", "c/ Sentado", "Completo", "Final"))
+```
+
+\normalsize
+:::
+
+::: {.column width="43%"}
+### \tallykey{E} Diagnóstico de Colinearidade
+
+-   **Por que excluir o tempo sentado?**
+    -   `sentado_sem_h` correlaciona-se com o IPAQ ($r = -0{,}458$, $p = 0{,}0084^*$) e infla os VIFs até $2{,}70$.
+-   **Estabilidade do modelo**:
+    -   Sem tempo sentado, o VIF máximo cai para $\le 1{,}85$;
+    -   No modelo final, todos os VIFs ficam entre $1{,}00$ e $1{,}06$ (ausência de multicolinearidade).
+:::
+:::::
+
+## 22. Objetivo E: Resíduos e Análise de Sensibilidade
+
+::::: columns
+::: {.column width="49%"}
+```{r}
+#| fig-height: 3.5
+#| fig-width: 5.3
+par(mfrow = c(2, 2), mar = c(3.5, 3.7, 1.7, 0.7), mgp = c(2.0, 0.65, 0),
+    bg = "#FCF6EE", col.axis = "#382A24", col.lab = "#382A24",
+    col.main = "#382A24", fg = "#594A42", cex.lab = 0.85, cex.axis = 0.80)
+plot(m_gad_final, col = "#B55A30", pch = 19, cex = 0.95)
+```
+:::
+
+::: {.column width="46%"}
+### \tallykey{E} Pressupostos e Robustez
+
+-   **Normalidade**: Shapiro-Wilk $W = 0{,}9851$, $p = 0{,}9322$.
+-   **Alavancagem**: todas as observações com **Distância de Cook** $D_i < 0{,}5$.
+
+\scriptsize
+
+```{r}
+df_sens <- subset(df_sexo, idade < 40)
+m_final_sens <- lm(gad7 ~ tela_h + sono_h + sexo, data = df_sens)
+s_s <- summary(m_final_sens)$coefficients
+tab_sens_s <- data.frame(
+  Termo  = c("Intercepto", "Tela (h/dia)", "Sono (h/noite)", "Sexo: Masc."),
+  Est_31 = coef(m_gad_final),
+  p_31   = summary(m_gad_final)$coefficients[, 4],
+  Est_30 = s_s[, 1],
+  p_30   = s_s[, 4]
+)
+knitr::kable(tab_sens_s, digits = 3, row.names = FALSE, booktabs = TRUE,
+             col.names = c("Sensibilidade", "Est(31)", "p(31)", "Est(30)", "p(30)"))
+```
+
+\footnotesize
+
+-   **Sem outlier de 47 anos (**$N=30$): `tela_h` mantém-se significativo ($\hat{\beta} = -0{,}863$, $p = 0{,}0349^*$).
+:::
+:::::
+
+## 23. Discussão Crítica e Limitações do Estudo
+
+::::: columns
+::: {.column width="46.5%"}
+### Por que o GAD-7 foi menor entre quem usou mais tela?
+
+-   Em um **estudo observacional transversal**, mede-se associação e não causalidade direta.
+-   Na turma avaliada, a relação inversa ($\hat{\beta} = -0{,}821\text{ pts/h}$, $p = 0{,}0213^*$) reflete um **efeito de rotina e disponibilidade de tempo livre**: alunos mais sobrecarregados e ansiosos dispunham de menos tempo livre para uso recreativo do celular.
+:::
+
+::: {.column width="46.5%"}
+### Limitações Metodológicas
+
+-   **Tamanho amostral (**$N = 32$): poder estatístico moderado para detectar efeitos pequenos.
+-   **Amostragem por conveniência em turma única**: $100\%$ diurno e $75\%$ masculino.
+-   **Autorrelato do sono**: diferentemente do tempo de tela ($93{,}75\%$ objetivo via sistema operacional), o sono foi autorreferido.
+:::
+:::::
+
+## 24. Conclusão A: Horas de Sono por Nível de Tela
+
+::::: columns
+::: {.column width="46.5%"}
+### \tallykey{A} Evidência Estatística
+
+-   **Médias próximas entre grupos**: $6{,}54\text{ h}$ (`<5h`), $6{,}38\text{ h}$ (`5–7h`) e $6{,}68\text{ h}$ (`>7h`).
+-   **ANOVA**: $F_{2,29} = 0{,}259$, $p = 0{,}7735$ (Kruskal-Wallis $p = 0{,}8945$).
+:::
+
+::: {.column width="46.5%"}
+### Resposta ao Objetivo A
+
+-   **Sem diferença marginal isolada** nas horas de sono entre os níveis de tempo de tela.
+-   O efeito da tela sobre o sono não é uniforme: ele **depende do nível de atividade física (IPAQ)**.
+:::
+:::::
+
+## 25. Conclusão B: Ansiedade (GAD-7) e Tempo de Tela
+
+::::: columns
+::: {.column width="46.5%"}
+### \tallykey{B} Evidência Estatística
+
+-   **ANOVA significativa**: $p = 0{,}0485^*$; Tukey `>7h` vs. `<5h` $= \mathbf{-5{,}00\text{ pts}}$ ($p_{\text{aj}} = 0{,}0380^*$).
+-   **Regressão contínua**: $\hat{\beta} = \mathbf{-0{,}821\text{ pts/h}}$ ($p = 0{,}0213^*$), persistindo com sono constante ($p = 0{,}0316^*$).
+:::
+
+::: {.column width="46.5%"}
+### Resposta ao Objetivo B
+
+-   **Associação inversa significativa** entre tempo diário de tela e escore de ansiedade na turma.
+-   Em delineamento transversal, reflete **rotina e disponibilidade de tempo livre** dos estudantes.
+:::
+:::::
+
+## 26. Conclusão C: Horas de Sono e Ansiedade (GAD-7)
+
+::::: columns
+::: {.column width="46.5%"}
+### \tallykey{C} Evidência Estatística
+
+-   **ANOVA por faixas clínicas**: sono cai de $6{,}98\text{ h}$ (*Mínimos*) para $6{,}26\text{ h}$ (*Mod./Graves*; $p = 0{,}1530$).
+-   **Regressão contínua**: $r = -0{,}299$, $\hat{\beta} = \mathbf{-1{,}414\text{ pts/h}}$ ($p = 0{,}0964$).
+:::
+
+::: {.column width="46.5%"}
+### Resposta ao Objetivo C
+
+-   **Tendência inversa coerente** com a literatura ($+1{,}41\text{ pts}$ no GAD-7 por hora a menos de sono).
+-   Significância marginal a $10\%$, compatível com o tamanho amostral ($N = 32$).
+:::
+:::::
+
+## 27. Conclusão D: Atividade Física (IPAQ) e Interação
+
+::::: columns
+::: {.column width="46.5%"}
+### \tallykey{D} Evidência Estatística
+
+-   **Mais ativos usam menos celular**: $r = -0{,}375$ ($p = 0{,}0344^*$); $-2{,}27\text{ h/dia}$ nos *Muito ativos*.
+-   **GAD-7 isolado vs. ANCOVA**: Shapiro violado na ANOVA ($p = 0{,}0133^*$), Kruskal-Wallis $p = 0{,}4523$; ANCOVA restaura normalidade ($p = 0{,}3608$).
+-   **Interação no sono**: $F_{1,28} = 4{,}882$, $p = 0{,}0355^*$ ($-27\text{ min/noite}$ por hora de tela nos *Muito ativos*).
+:::
+
+::: {.column width="46.5%"}
+### Resposta ao Objetivo D
+
+-   **Fator protetor**: estudantes mais ativos passam menos tempo no celular e apresentam $\approx -2{,}6\text{ pts}$ no GAD-7 na ANCOVA aditiva.
+-   Nos *Muito ativos*, o tempo extra de tela **compete diretamente com o sono**.
+:::
+:::::
+
+## 28. Conclusão E: Persistência Após Covariáveis
+
+::::: columns
+::: {.column width="46.5%"}
+### \tallykey{E} Evidência Estatística
+
+-   **Stepwise AIC**: `gad7 ~ tela_h + sono_h + sexo` ($p = 0{,}0348^*$, $R^2 = 26{,}92\%$).
+-   **Robustez**: `tela_h` significativo por faixas ($p = 0{,}0494^*$), contínuo ($p = 0{,}0141^*$) e sem outlier ($p = 0{,}0349^*$).
+:::
+
+::: {.column width="46.5%"}
+### Resposta ao Objetivo E
+
+-   O efeito do tempo de tela **persiste após ajuste** por sono, IPAQ, disciplinas, sexo e idade.
+-   Modelo final bem ajustado e **sem multicolinearidade** ($\text{VIF} \le 1{,}06$).
+:::
+:::::
+
+## 29. Referências Bibliográficas (1/2)
+
+\footnotesize
+
+-   **ARSHAD, D. et al.** The adverse impact of excessive smartphone screen-time on sleep quality among young adults: a prospective cohort. *Sleep Science*, v. 14, n. 4, p. 337–341, 2021.
+-   **BAIN & COMPANY.** Pesquisa sobre hábitos digitais e tempo de conexão no Brasil. São Paulo, 2025.
+-   **BORAITA, R. J. et al.** The impact of physical activity levels on mental health and sleep quality in university online students. *Journal of Public Health*, 2025. DOI: 10.1007/s10389-025-02559-1.
+-   **GIL, A. C.** *Como elaborar projetos de pesquisa*. 6. ed. São Paulo: Atlas, 2017.
+-   **KUŞ, M.** A meta-analysis of the impact of technology related factors on students' academic performance. *Frontiers in Psychology*, v. 16, art. 1524645, 2025.
+-   **MATSUDO, S. et al.** Questionário Internacional de Atividade Física (IPAQ): estudo de validade e reprodutibilidade no Brasil. *Revista Brasileira de Atividade Física & Saúde*, v. 6, n. 2, p. 5–18, 2001.
+
+## 30. Referências Bibliográficas (2/2)
+
+\footnotesize
+
+-   **MONTGOMERY, D. C.** *Design and analysis of experiments*. 9. ed. Hoboken: Wiley, 2017.
+-   **MORENO, A. L. et al.** Factor structure, reliability, and item parameters of the Brazilian-Portuguese version of the GAD-7 questionnaire. *Temas em Psicologia*, v. 24, n. 1, p. 367–376, 2016.
+-   **MUHAMMAD, N.; HUSSAIN, M.; ADNAN, S. M.** Screen time and sleep quality among college and university students of Karachi. *Journal of Health & Biological Sciences*, v. 9, n. 1, p. 1–14, 2021.
+-   **PAULA, W. et al.** Prevalence of anxiety, depression, and suicidal ideation symptoms among university students: a systematic review. *Brazilian Journal of Health Review*, v. 3, n. 4, p. 9425–9442, 2020.
+-   **SOUZA, J. P. A. et al.** Sintomas de ansiedade generalizada entre estudantes de graduação: prevalência, fatores associados e possíveis consequências. *Jornal Brasileiro de Psiquiatria*, v. 71, n. 3, p. 193–203, 2022.
+-   **SPITZER, R. L. et al.** A brief measure for assessing generalized anxiety disorder: the GAD-7. *Archives of Internal Medicine*, v. 166, n. 10, p. 1092–1097, 2006.
+-   **SUNDAY, O. J.; ADESOPE, O. O.; MAARHUIS, P. L.** The effects of smartphone addiction on learning: a meta-analysis. *Computers in Human Behavior Reports*, v. 4, art. 100114, 2021.
+-   **YIN, J. et al.** Associations between both smartphone addiction and objectively measured smartphone use and sleep quality and duration among university students: cross-sectional study. *JMIR Mental Health*, v. 12, p. e77796, 2025.

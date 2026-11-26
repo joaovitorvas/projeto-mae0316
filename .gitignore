@@ -1,0 +1,9 @@
+/backup/
+/_site/
+/.quarto/
+/analise.knit_files/
+**/*.quarto_ipynb
+.Rhistory
+.RData
+.Rproj.user/
+base-dados.csv

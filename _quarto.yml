@@ -1,0 +1,11 @@
+project:
+  type: website
+  title: "Relatório - Projeto MAE0316"
+  output-dir: docs
+  render:
+    - analise.qmd
+    - apresentacao_slides.qmd
+
+website:
+  title: "Projeto MAE0316"
+ 
