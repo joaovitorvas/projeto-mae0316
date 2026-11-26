@@ -242,7 +242,7 @@ cat(sprintf("Diagnóstico: Shapiro-Wilk p = %.4f | Levene p = %.4f | Kruskal-Wal
             shapiro_sono_tela, levene_sono_tela, kw_sono_tela))
 ```
 
-Os pressupostos de normalidade (Shapiro-Wilk $p = 0{,}4291$) e homocedasticidade (Levene $p = 0{,}3163$) são integralmente atendidos. Não se observa diferença significativa na média de horas de sono entre as faixas de tempo de tela isoladamente ($F_{2,29} = 0{,}2591$, $p = 0{,}7735$; Kruskal-Wallis $p = 0{,}8945$). Como demonstraremos na Seção 4.4, a ausência de efeito principal marginal ocorre porque a relação entre tela e sono depende do nível de atividade física do estudante (efeito de interação).
+Os pressupostos de normalidade (Shapiro-Wilk $p = 0{,}4291$) e homocedasticidade (Levene $p = 0{,}3465$) são integralmente atendidos. Não se observa diferença significativa na média de horas de sono entre as faixas de tempo de tela isoladamente ($F_{2,29} = 0{,}2591$, $p = 0{,}7735$; Kruskal-Wallis $p = 0{,}8945$). Como demonstraremos na Seção 4.4, a ausência de efeito principal marginal ocorre porque a relação entre tela e sono depende do nível de atividade física do estudante (efeito de interação).
 
 ## Objetivo B: Escore de Ansiedade (GAD-7) entre os Níveis de Tempo de Tela (ANOVA e Tukey)
 
@@ -406,7 +406,7 @@ grid()
 
 Para atender ao **Objetivo D**, investigamos a relação da atividade física (classificada nos 3 níveis do IPAQ: `Insuficientemente ativo`, `Ativo` e `Muito ativo`) com o tempo de tela, a ansiedade e as horas de sono, avaliando em seguida os modelos com interação.
 
-## Perfil por Nível do IPAQ: Os Mais Ativos Usam Menos Celular?
+## Perfil por Nível do IPAQ: Associação entre Atividade Física e Tempo de Tela
 
 ```{r}
 tab_ipaq <- do.call(rbind, lapply(levels(df$ipaq_3), function(niv) {
@@ -725,10 +725,14 @@ Os resíduos do modelo final apresentam aderência excelente à distribuição n
 # Síntese das Conclusões (Objetivos A a E)
 
 - **Objetivo A — Comparação das horas de sono entre os níveis de tempo de tela**: Isoladamente, a média de horas de sono não difere significativamente entre as faixas `<5h` ($6{,}54\text{ h}$), `5–7h` ($6{,}38\text{ h}$) e `>7h` ($6{,}68\text{ h}$) na ANOVA de um fator ($F_{2,29} = 0{,}259$, $p = 0{,}7735$; Kruskal-Wallis $p = 0{,}8945$), nem na regressão linear simples ($p = 0{,}4684$), pois o efeito depende do nível de atividade física (Objetivo D).
+
 - **Objetivo B — Comparação do escore de ansiedade (GAD-7) entre os níveis de tempo de tela**: Há diferença estatisticamente significativa entre as faixas de tempo de tela na ANOVA ($F_{2,29} = 3{,}365$, **$p = 0{,}0485^*$**). O teste de Tukey indica diferença de **$-5{,}00$ pontos no GAD-7** entre a faixa `>7h` ($4{,}90\text{ pts}$) e a faixa `<5h` ($9{,}90\text{ pts}$, **$p_{\text{aj}} = 0{,}0380^*$**). Na modelagem contínua, cada hora adicional de celular associa-se a $-0{,}821$ pontos no GAD-7 (**$p = 0{,}0213^*$**), efeito que se mantém significativo mesmo comparando alunos com horas de sono equivalentes ($\hat{\beta} = -0{,}754$, **$p = 0{,}0316^*$**).
+
 - **Objetivo C — Associação direta entre horas de sono e escore de ansiedade**: Na ANOVA por faixas clínicas agrupadas (`Mínimos`, `Leves`, `Mod./Graves`), a média de sono cai de $6{,}98\text{ h/noite}$ (*Mínimos*) para $6{,}26\text{ h/noite}$ (*Mod./Graves*; $F_{2,29} = 2{,}004$, $p = 0{,}1530$; Kruskal-Wallis $p = 0{,}2284$). Na regressão contínua, observa-se tendência inversa ($r = -0{,}299$, $\hat{\beta} = -1{,}414\text{ pts/h de sono}$, $p = 0{,}0964$, $R^2 = 8{,}94\%$), mantida ao controlar pelo tempo de tela ($\hat{\beta}_{\text{sono}} = -1{,}180\text{ pts/h}$, $p = 0{,}1410$).
+
 - **Objetivo D — Papel da atividade física (IPAQ) e interação com o tempo de tela**:
    - Confirmou-se associação negativa significativa entre o volume semanal de atividade física (em minutos e em MET-min/semana) e o tempo diário de celular ($r = -0{,}375$, **$p = 0{,}0344^*$**): estudantes *Muito ativos* usam em média $4{,}69\text{ h/dia}$ de tela contra $6{,}96\text{ h/dia}$ nos *Insuficientemente ativos* (**$p = 0{,}0379^*$**).
    - Sobre a **ansiedade**, a ANOVA isolada (`gad7 ~ ipaq_3`) violou a normalidade dos resíduos (Shapiro-Wilk $p = 0{,}0133^*$) e o teste não paramétrico de Kruskal-Wallis não indicou diferença isolada ($H = 1{,}587$, $p = 0{,}4523$); ao controlar pelo tempo de tela, a normalidade é restabelecida ($p = 0{,}3608$) e não há interação significativa ($p = 0{,}3329$), vigorando o efeito aditivo (ANCOVA).
    - Sobre as **horas de sono**, identificou-se efeito de interação ($p = 0{,}0640$ nos 3 níveis do IPAQ e **$p = 0{,}0355^*$** para o perfil *Muito ativo*): entre estudantes *Muito ativos*, cada hora extra de tela reduz o sono em **$-27\text{ minutos por noite}$** ($r = -0{,}690$), indicando compressão do tempo de sono quando o uso elevado de telas se soma a uma rotina intensa de treinos e estudos.
+   
 - **Objetivo E — Persistência após ajuste por covariáveis ($N = 31$ com sexo declarado)**: A diferença no escore GAD-7 entre as faixas de tempo de tela (**$p = 0{,}0494^*$** para `>7h` vs. `<5h` ajustado por sono, IPAQ, disciplinas, sexo e idade) e na modelagem contínua selecionada via Stepwise AIC (`gad7 ~ tela_h + sono_h + sexo`, **$p = 0{,}0141^*$** para `tela_h`, $R^2 = 26{,}92\%$, $p_{\text{global}} = 0{,}0348^*$) persiste após o ajuste, sem multicolinearidade ($\text{VIF} \le 1{,}06$), e mantém robustez na análise de sensibilidade ($N = 30$, $p = 0{,}0349^*$).

@@ -250,7 +250,9 @@ calcular_vif <- function(mod) {
 ### \tallykey{1} Uso Massivo de Smartphones
 
 -   O celular integra a rotina acadêmica, social e de lazer da quase totalidade dos universitários.
+
 -   **Yin et al. (2025)** ($N = 17.713$): média objetiva de $49{,}1\text{ h/semana}$ ($\approx 7\text{ h/dia}$) de tela.
+
 -   No Brasil, a estimativa de conexão diária atinge $\approx 9\text{ h/dia}$ (*Bain & Company, 2025*).
 :::
 
@@ -258,7 +260,9 @@ calcular_vif <- function(mod) {
 ### \tallykey{2} Ansiedade e Sono na Graduação
 
 -   **Prevalência global**: $24{,}5\%$ dos universitários em 40 países apresentam sintomas de ansiedade (*Paula et al., 2020*).
+
 -   **Contexto brasileiro** (*Souza et al., 2022*):
+
     -   $37{,}75\%$ com ansiedade clinicamente relevante;
     -   $63{,}5\%$ com má qualidade do sono.
 :::
@@ -271,6 +275,7 @@ calcular_vif <- function(mod) {
 ### \tallykey{3} O Sono como Elo Mediador
 
 -   Metanálises apontam o **sono** como o principal elo entre uso excessivo de telas e queda no bem-estar (*Sunday et al., 2021; Kuş, 2025*).
+
 -   A exposição prolongada — sobretudo noturna — associa-se à menor duração e pior qualidade do sono (*Muhammad et al., 2021; Arshad et al., 2021*).
 :::
 
@@ -278,6 +283,7 @@ calcular_vif <- function(mod) {
 ### \tallykey{4} Atividade Física como Fator Protetor
 
 -   O estilo de vida ativo pode atenuar os efeitos deletérios do comportamento sedentário.
+
 -   **Boraita et al. (2025)**: universitários fisicamente ativos apresentam **menor tempo de tela**, **melhor sono** e **menor ansiedade**.
 :::
 :::::
@@ -293,9 +299,13 @@ Avaliar se o tempo diário de tela está associado ao sono e à ansiedade dos al
 ### Objetivos Específicos
 
 -   \tallykey{A} Comparar as **horas médias de sono** entre os níveis de tempo diário de tela (ANOVA).
+
 -   \tallykey{B} Comparar o **GAD-7** entre níveis de tela e avaliar sua relação contínua (isolada e ajustada pelo sono).
+
 -   \tallykey{C} Verificar a **associação direta entre horas de sono e ansiedade (GAD-7)**.
+
 -   \tallykey{D} Analisar o papel da **atividade física (IPAQ)** e testar sua **interação** com o tempo de tela.
+
 -   \tallykey{E} Avaliar se os efeitos **persistem após ajuste por covariáveis** (disciplinas, sexo, idade e turno).
 
 ## 4. Delineamento e Coleta
@@ -305,6 +315,7 @@ Avaliar se o tempo diário de tela está associado ao sono e à ansiedade dos al
 ### \tallykey{1} Delineamento e Amostra
 
 -   **Estudo observacional transversal** (*Gil, 2017; Montgomery, 2017*): variáveis observadas sem alocação aleatória.
+
 -   **População e Amostra**: estudantes de MAE0316 (IME-USP), amostragem com $N = 32$ participantes consentidos via TCLE (***Termo de Consentimento Livre e Esclarecido***).
 :::
 
@@ -312,6 +323,7 @@ Avaliar se o tempo diário de tela está associado ao sono e à ansiedade dos al
 ### \tallykey{2} Coleta e Recursos
 
 -   **Coleta**: plataforma **Tally** entre `16/11` e `18/11/2026`.
+
 -   **Recursos**: softwares livres (**R, Quarto, Tally, Netlify**), sem custos financeiros.
 :::
 :::::
@@ -333,6 +345,7 @@ Instrução para consultar o painel do sistema operacional nos últimos 7 dias:
 ### \tallykey{2} Instrumentos Validados
 
 -   **IPAQ Versão Curta** (*Matsudo et al., 2001*): frequência e duração semanal de caminhada, atividades moderadas, vigorosas e tempo sentado.
+
 -   **GAD-7** (*Spitzer et al., 2006; Moreno et al., 2016*): 7 itens de ansiedade nas últimas 2 semanas (escore de $0$ a $21$ pontos).
 :::
 :::::
@@ -347,7 +360,9 @@ Instrução para consultar o painel do sistema operacional nos últimos 7 dias:
     -   Contínuo: `tela_h` (horas/dia);
     -   Categórico (`tela_faixa`, grupos balanceados):
         -   **Baixo (`<5h`)**: $n = 10$;
+
         -   **Moderado (`5–7h`)**: $n = 12$;
+
         -   **Elevado (`>7h`)**: $n = 10$.
 -   **Sono**: duração noturna (`sono_h`).
 :::
@@ -356,7 +371,9 @@ Instrução para consultar o painel do sistema operacional nos últimos 7 dias:
 ### \tallykey{2} Ansiedade e Atividade Física
 
 -   **Ansiedade (GAD-7)**: escore contínuo ($0\text{--}21$) e faixas clínicas (*Mínimos*, *Leves*, *Moderados*, *Graves*).
+
 -   **Atividade Física (IPAQ)**:
+
     -   **Insuficientemente ativo**: $n = 9$;
     -   **Ativo**: $n = 17$;
     -   **Muito ativo**: $n = 6$;
@@ -375,7 +392,9 @@ $$\text{MET-min/sem} = 3{,}3 \times \text{min}_{\text{caminhada}} + 4{,}0 \times
 ### \tallykey{1} Tratamento das Covariáveis
 
 -   **Turno**: $100\%$ da amostra ($N=32$) é do turno **Diurno** (variância zero $\rightarrow$ controle por homogeneidade).
+
 -   **Sexo (`sexo`)**: *Feminino* ($n=7$) e *Masculino* ($n=24$); 1 resposta *"Prefiro não informar"* tratada como `NA` ($N=31$).
+
 -   **Tempo Sentado**: excluído dos modelos múltiplos por medir o domínio sedentário do próprio IPAQ ($r = -0{,}458$).
 :::
 
@@ -383,7 +402,9 @@ $$\text{MET-min/sem} = 3{,}3 \times \text{min}_{\text{caminhada}} + 4{,}0 \times
 ### \tallykey{2} Modelos e Testes de Pressupostos
 
 -   **Comparação de grupos**: ANOVA de 1 fator, pós-teste de **Tukey HSD** e **Kruskal-Wallis**.
+
 -   **Modelagem contínua**: Regressão Linear, **ANCOVA** e Interação.
+
 -   **Seleção e Diagnóstico**: **Stepwise AIC**, **VIF** (multicolinearidade), **Shapiro-Wilk**, **Levene (mediana)** e análise de sensibilidade.
 :::
 :::::
@@ -542,6 +563,7 @@ knitr::kable(tab_tk, digits = c(0, 2, 0, 4), row.names = FALSE, booktabs = TRUE,
 \footnotesize
 
 -   **Diferença significativa**: apenas **Elevado (`>7h`) vs. Baixo (`<5h`)** ($-5{,}00\text{ pts}$, $p_{\text{aj}} = 0{,}0380^*$).
+
 -   O intervalo $[-9{,}76;\, -0{,}24]$ não cruza o zero; as demais comparações não diferem a $5\%$.
 :::
 :::::
@@ -568,10 +590,15 @@ grid(col = "#E6D2C4")
 ### \tallykey{B} Regressão Simples e Múltipla
 
 -   **Modelo simples (`gad7 ~ tela_h`)**:
+
     -   $\hat{\beta} = \mathbf{-0{,}821\text{ pts/h}}$ ($t = -2{,}430$, $p = 0{,}0213^*$);
+
     -   Explica $R^2 = 16{,}44\%$ da variância do GAD-7.
+
 -   **Mantendo o sono constante (`gad7 ~ tela_h + sono_h`)**:
+
     -   O efeito da tela **persiste significativo**: $\hat{\beta}_{\text{tela}} = \mathbf{-0{,}754\text{ pts/h}}$ ($p = 0{,}0316^*$);
+
     -   Modelo global: $F_{2,29} = 4{,}225$, $p = 0{,}0245^*$ ($R^2 = 22{,}56\%$).
 :::
 :::::
@@ -599,10 +626,15 @@ points(1:3, tapply(df$sono_h, df$gad7_3, mean), pch = 1,  col = "#382A24", cex =
 ### \tallykey{C} Resultado da ANOVA do Sono por GAD-7
 
 -   **Médias por faixa clínica** (*Moderados* + *Graves* agrupados):
+
     -   Mínimos ($n=11$): $6{,}98\text{ h}$ ($\text{DP}=1{,}07\text{h}$);
+
     -   Leves ($n=12$): $6{,}29\text{ h}$ ($\text{DP}=0{,}97\text{h}$);
+
     -   Mod./Graves ($n=9$): $6{,}26\text{ h}$ ($\text{DP}=0{,}73\text{h}$).
+
 -   **ANOVA**: $F_{2,29} = 2{,}004$, $p = 0{,}1530$ (Kruskal-Wallis $p = 0{,}2284$).
+
 -   **Pressupostos atendidos**: Shapiro-Wilk $p = 0{,}0548$ \| Levene $p = 0{,}5246$.
 :::
 :::::
@@ -629,9 +661,13 @@ grid(col = "#E6D2C4")
 ### \tallykey{C} Regressão Simples e Múltipla
 
 -   **Modelo simples (`gad7 ~ sono_h`)**:
+
     -   $\hat{\beta} = \mathbf{-1{,}414\text{ pts/h}}$ ($t = -1{,}716$, $p = 0{,}0964$);
+
     -   Explica $R^2 = 8{,}94\%$ da variância do GAD-7 ($+1{,}41\text{ pts}$ por hora a menos de sono).
+
 -   **Mantendo a tela constante (`gad7 ~ sono_h + tela_h`)**:
+
     -   Tendência inversa mantida: $\hat{\beta}_{\text{sono}} = \mathbf{-1{,}180\text{ pts/h}}$ ($t = -1{,}514$, $p = 0{,}1410$);
     -   Modelo global: $F_{2,29} = 4{,}225$, $p = 0{,}0245^*$ ($R^2 = 22{,}56\%$).
 :::
@@ -664,10 +700,11 @@ knitr::kable(tab_ipaq, digits = 2, row.names = FALSE, booktabs = TRUE,
 
 \normalsize
 
-### \tallykey{D} Os Mais Ativos Usam Menos Celular? Sim ($p < 0{,}05$)!
+### \tallykey{D} Associação entre Atividade Física e Tempo de Tela
 
--   O tempo de tela cai de $6{,}96\text{ h/dia}$ (*Insuf. ativos*) para $4{,}69\text{ h/dia}$ (*Muito ativos*: $-2{,}27\text{ h/dia}$, Mann-Whitney $p = 0{,}0379^*$).
--   **Correlação contínua significativa**: $r = -0{,}352$ ($p = 0{,}0482^*$) com minutos/sem e $r = -0{,}375$ ($p = 0{,}0344^*$) com gasto em MET-min/sem.
+-   **Redução no tempo de tela**: cai de $6{,}96\text{ h/dia}$ (*Insuf. ativos*) para $4{,}69\text{ h/dia}$ (*Muito ativos*: $-2{,}27\text{ h/dia}$, Mann-Whitney $p = 0{,}0379^*$).
+
+-   **Correlação contínua**: $r = -0{,}352$ ($p = 0{,}0482^*$) em min/sem e $r = -0{,}375$ ($p = 0{,}0344^*$) em MET-min/sem.
 
 ## 16. Objetivo D: Ansiedade por IPAQ — ANOVA e Diagnóstico
 
@@ -691,10 +728,14 @@ grid(col = "#E6D2C4")
 ### \tallykey{D} Falha na Normalidade dos Resíduos
 
 -   **ANOVA isolada (`gad7 ~ ipaq_3`)**: $F_{2,29} = 0{,}576$, $p = 0{,}5682$.
+
 -   **Diagnóstico de pressupostos**:
+
     -   Levene (homocedasticidade): $p = 0{,}4557$ (atendido);
-    -   **Shapiro-Wilk (normalidade)**: $W = 0{,}9128$, **$p = 0{,}0133^* < 0{,}05$** (**violado!**).
--   **Conduta**: como a normalidade falha na ANOVA isolada, aplicamos o **teste não paramétrico (Kruskal-Wallis)** e, depois, a **ANCOVA** incluindo o tempo de tela.
+
+    -   **Shapiro-Wilk (normalidade)**: $W = 0{,}9128$, $p = 0{,}0133^* < 0{,}05$ (**violado!**).
+
+-   Como a normalidade falha na ANOVA isolada, aplicamos o **teste não paramétrico (Kruskal-Wallis)** e, depois, a **ANCOVA** incluindo o tempo de tela.
 :::
 :::::
 
@@ -722,10 +763,15 @@ points(1:3, tapply(df$gad7, df$ipaq_3, mean), pch = 1,  col = "#382A24", cex = 1
 ### \tallykey{D} Teste Não Paramétrico (Kruskal-Wallis)
 
 -   **Medianas (IIQ) por nível do IPAQ**:
+
     -   Insuf. ativo ($n=9$): $8{,}0\text{ pts}$ ($\text{IIQ}=6{,}00$);
+
     -   Ativo ($n=17$): $6{,}0\text{ pts}$ ($\text{IIQ}=5{,}00$);
+
     -   Muito ativo ($n=6$): $5{,}5\text{ pts}$ ($\text{IIQ}=8{,}25$).
+
 -   **Kruskal-Wallis**: $H = 1{,}587$ ($\text{gl}=2$), $p = 0{,}4523$.
+
 -   **Conclusão isolada**: sem diferença significativa entre grupos — mas como os mais ativos usam menos celular, controlamos por `tela_h` na **ANCOVA** a seguir.
 :::
 :::::
@@ -762,7 +808,9 @@ grid(col = "#E6D2C4")
 ### \tallykey{D} Efeito Aditivo no GAD-7
 
 -   **Sem interação `tela_h:ipaq_3`** ($F_{2,26} = 1{,}148$, $p = 0{,}3329$): as retas nos 3 grupos são paralelas.
+
 -   **Restauração da normalidade**: o modelo isolado `gad7 ~ ipaq_3` violava Shapiro ($p=0{,}0133$), mas a **ANCOVA aditiva** restabelece a normalidade (**Shapiro** $p = 0{,}3608$, Levene $p = 0{,}4557$).
+
 -   **Efeito ajustado**: `tela_h` tem $\hat{\beta} = \mathbf{-0{,}938}$ ($p = 0{,}0140^*$) e ativos têm $\approx -2{,}6\text{ pts}$ no GAD-7.
 :::
 :::::
@@ -794,11 +842,13 @@ grid(col = "#E6D2C4")
 :::
 
 ::: {.column width="45%"}
-### \tallykey{D} Interação Significativa no Sono!
+### \tallykey{D} Interação Significativa no Sono
 
 -   **Teste de interação**: $F_{2,26} = 3{,}062$ ($p = 0{,}0640$ nos 3 níveis) e $F_{1,28} = 4{,}882$ ($p = 0{,}0355^*$) destacando o grupo **Muito ativo**.
+
 -   **Pressupostos**: Shapiro $p = 0{,}9516$ \| Levene $p = 0{,}9213$.
--   **Interpretação (*Simple Slopes*)**: nos **Muito ativos** ($\approx 15{,}8\text{ h/sem}$ de treino), cada hora extra de tela reduz o sono em $-27\text{ min/noite}$ ($r = -0{,}690$).
+
+-   **Interpretação**: nos **Muito ativos** ($\approx 15{,}8\text{ h/sem}$ de treino), cada hora extra de tela reduz o sono em $-27\text{ min/noite}$ ($r = -0{,}690$).
 :::
 :::::
 
@@ -923,6 +973,7 @@ knitr::kable(tab_sens_s, digits = 3, row.names = FALSE, booktabs = TRUE,
 ### Por que o GAD-7 foi menor entre quem usou mais tela?
 
 -   Em um **estudo observacional transversal**, mede-se associação e não causalidade direta.
+
 -   Na turma avaliada, a relação inversa ($\hat{\beta} = -0{,}821\text{ pts/h}$, $p = 0{,}0213^*$) reflete um **efeito de rotina e disponibilidade de tempo livre**: alunos mais sobrecarregados e ansiosos dispunham de menos tempo livre para uso recreativo do celular.
 :::
 
@@ -930,7 +981,9 @@ knitr::kable(tab_sens_s, digits = 3, row.names = FALSE, booktabs = TRUE,
 ### Limitações Metodológicas
 
 -   **Tamanho amostral (**$N = 32$): poder estatístico moderado para detectar efeitos pequenos.
+
 -   **Amostragem por conveniência em turma única**: $100\%$ diurno e $75\%$ masculino.
+
 -   **Autorrelato do sono**: diferentemente do tempo de tela ($93{,}75\%$ objetivo via sistema operacional), o sono foi autorreferido.
 :::
 :::::
@@ -942,6 +995,7 @@ knitr::kable(tab_sens_s, digits = 3, row.names = FALSE, booktabs = TRUE,
 ### \tallykey{A} Evidência Estatística
 
 -   **Médias próximas entre grupos**: $6{,}54\text{ h}$ (`<5h`), $6{,}38\text{ h}$ (`5–7h`) e $6{,}68\text{ h}$ (`>7h`).
+
 -   **ANOVA**: $F_{2,29} = 0{,}259$, $p = 0{,}7735$ (Kruskal-Wallis $p = 0{,}8945$).
 :::
 
@@ -949,6 +1003,7 @@ knitr::kable(tab_sens_s, digits = 3, row.names = FALSE, booktabs = TRUE,
 ### Resposta ao Objetivo A
 
 -   **Sem diferença marginal isolada** nas horas de sono entre os níveis de tempo de tela.
+
 -   O efeito da tela sobre o sono não é uniforme: ele **depende do nível de atividade física (IPAQ)**.
 :::
 :::::
@@ -960,6 +1015,7 @@ knitr::kable(tab_sens_s, digits = 3, row.names = FALSE, booktabs = TRUE,
 ### \tallykey{B} Evidência Estatística
 
 -   **ANOVA significativa**: $p = 0{,}0485^*$; Tukey `>7h` vs. `<5h` $= \mathbf{-5{,}00\text{ pts}}$ ($p_{\text{aj}} = 0{,}0380^*$).
+
 -   **Regressão contínua**: $\hat{\beta} = \mathbf{-0{,}821\text{ pts/h}}$ ($p = 0{,}0213^*$), persistindo com sono constante ($p = 0{,}0316^*$).
 :::
 
@@ -967,6 +1023,7 @@ knitr::kable(tab_sens_s, digits = 3, row.names = FALSE, booktabs = TRUE,
 ### Resposta ao Objetivo B
 
 -   **Associação inversa significativa** entre tempo diário de tela e escore de ansiedade na turma.
+
 -   Em delineamento transversal, reflete **rotina e disponibilidade de tempo livre** dos estudantes.
 :::
 :::::
@@ -978,6 +1035,7 @@ knitr::kable(tab_sens_s, digits = 3, row.names = FALSE, booktabs = TRUE,
 ### \tallykey{C} Evidência Estatística
 
 -   **ANOVA por faixas clínicas**: sono cai de $6{,}98\text{ h}$ (*Mínimos*) para $6{,}26\text{ h}$ (*Mod./Graves*; $p = 0{,}1530$).
+
 -   **Regressão contínua**: $r = -0{,}299$, $\hat{\beta} = \mathbf{-1{,}414\text{ pts/h}}$ ($p = 0{,}0964$).
 :::
 
@@ -985,6 +1043,7 @@ knitr::kable(tab_sens_s, digits = 3, row.names = FALSE, booktabs = TRUE,
 ### Resposta ao Objetivo C
 
 -   **Tendência inversa coerente** com a literatura ($+1{,}41\text{ pts}$ no GAD-7 por hora a menos de sono).
+
 -   Significância marginal a $10\%$, compatível com o tamanho amostral ($N = 32$).
 :::
 :::::
@@ -996,7 +1055,9 @@ knitr::kable(tab_sens_s, digits = 3, row.names = FALSE, booktabs = TRUE,
 ### \tallykey{D} Evidência Estatística
 
 -   **Mais ativos usam menos celular**: $r = -0{,}375$ ($p = 0{,}0344^*$); $-2{,}27\text{ h/dia}$ nos *Muito ativos*.
+
 -   **GAD-7 isolado vs. ANCOVA**: Shapiro violado na ANOVA ($p = 0{,}0133^*$), Kruskal-Wallis $p = 0{,}4523$; ANCOVA restaura normalidade ($p = 0{,}3608$).
+
 -   **Interação no sono**: $F_{1,28} = 4{,}882$, $p = 0{,}0355^*$ ($-27\text{ min/noite}$ por hora de tela nos *Muito ativos*).
 :::
 
@@ -1004,6 +1065,7 @@ knitr::kable(tab_sens_s, digits = 3, row.names = FALSE, booktabs = TRUE,
 ### Resposta ao Objetivo D
 
 -   **Fator protetor**: estudantes mais ativos passam menos tempo no celular e apresentam $\approx -2{,}6\text{ pts}$ no GAD-7 na ANCOVA aditiva.
+
 -   Nos *Muito ativos*, o tempo extra de tela **compete diretamente com o sono**.
 :::
 :::::
@@ -1015,6 +1077,7 @@ knitr::kable(tab_sens_s, digits = 3, row.names = FALSE, booktabs = TRUE,
 ### \tallykey{E} Evidência Estatística
 
 -   **Stepwise AIC**: `gad7 ~ tela_h + sono_h + sexo` ($p = 0{,}0348^*$, $R^2 = 26{,}92\%$).
+
 -   **Robustez**: `tela_h` significativo por faixas ($p = 0{,}0494^*$), contínuo ($p = 0{,}0141^*$) e sem outlier ($p = 0{,}0349^*$).
 :::
 
@@ -1022,6 +1085,7 @@ knitr::kable(tab_sens_s, digits = 3, row.names = FALSE, booktabs = TRUE,
 ### Resposta ao Objetivo E
 
 -   O efeito do tempo de tela **persiste após ajuste** por sono, IPAQ, disciplinas, sexo e idade.
+
 -   Modelo final bem ajustado e **sem multicolinearidade** ($\text{VIF} \le 1{,}06$).
 :::
 :::::
