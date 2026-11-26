@@ -257,6 +257,19 @@ window.Quarto = {
 <li><strong>Covariáveis nos modelos múltiplos</strong>: número de disciplinas cursadas no semestre (<code>disciplinas</code>), sexo declarado (<code>sexo</code>: <em>Feminino</em> [<span class="math inline">\(n = 7\)</span>] e <em>Masculino</em> [<span class="math inline">\(n = 24\)</span>], tratando a única resposta <em>“Prefiro não informar”</em> como <code>NA</code> apenas nos modelos que incluem sexo, mantendo <span class="math inline">\(N = 32\)</span> nas demais análises) e idade em anos completos (<code>idade</code>). Os itens de tempo sentado (<code>sentado_sem_h</code> e <code>sentado_fds_h</code>) são apresentados apenas na descrição da amostra (Tabela 1) e <strong>não são incluídos simultaneamente com o IPAQ na modelagem</strong> por integrarem o mesmo instrumento de atividade física/sedentarismo (<span class="math inline">\(r = -0{,}458\)</span> com minutos semanais do IPAQ), evitando colinearidade e dupla contagem (como confirmado pela análise de VIF).</li>
 </ul></li>
 </ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Observação metodológica: tratamento do escore GAD-7 como variável contínua">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Observação metodológica: tratamento do escore GAD-7 como variável contínua
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Embora o escore total do GAD-7 assuma valores discretos inteiros (<span class="math inline">\(0\)</span> a <span class="math inline">\(21\)</span>), na psicometria e na estatística aplicada é prática consolidada tratar escalas somativas com ampla amplitude (<span class="math inline">\(22\)</span> pontos possíveis) como <strong>variáveis contínuas</strong> em modelos lineares e ANOVA, preservando a interpretabilidade direta dos coeficientes e o poder estatístico, aproximação respaldada neste estudo pela aderência dos resíduos à normalidade nos modelos ajustados e fundamentada na literatura psicométrica sobre a adequação dos escores somados do GAD-7 (<a href="https://pubmed.ncbi.nlm.nih.gov/33269612/">Stochl et al., 2022</a>).</p>
+</div>
+</div>
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Código</summary>

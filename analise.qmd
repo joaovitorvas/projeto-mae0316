@@ -63,6 +63,10 @@ Para garantir fundamentação teórica e estabilidade estatística nas análises
    - **Turno**: todos os 32 respondentes declararam cursar a maior parte das disciplinas no turno **Diurno** ($100\%$). Por não apresentar variabilidade (variância nula), a variável `turno` não entrou como preditor nos modelos.
    - **Covariáveis nos modelos múltiplos**: número de disciplinas cursadas no semestre (`disciplinas`), sexo declarado (`sexo`: *Feminino* [$n = 7$] e *Masculino* [$n = 24$], tratando a única resposta *"Prefiro não informar"* como `NA` apenas nos modelos que incluem sexo, mantendo $N = 32$ nas demais análises) e idade em anos completos (`idade`). Os itens de tempo sentado (`sentado_sem_h` e `sentado_fds_h`) são apresentados apenas na descrição da amostra (Tabela 1) e **não são incluídos simultaneamente com o IPAQ na modelagem** por integrarem o mesmo instrumento de atividade física/sedentarismo ($r = -0{,}458$ com minutos semanais do IPAQ), evitando colinearidade e dupla contagem (como confirmado pela análise de VIF).
 
+::: {.callout-note title="Observação metodológica: tratamento do escore GAD-7 como variável contínua"}
+Embora o escore total do GAD-7 assuma valores discretos inteiros ($0$ a $21$), na psicometria e na estatística aplicada é prática consolidada tratar escalas somativas com ampla amplitude ($22$ pontos possíveis) como **variáveis contínuas** em modelos lineares e ANOVA, preservando a interpretabilidade direta dos coeficientes e o poder estatístico, aproximação respaldada neste estudo pela aderência dos resíduos à normalidade nos modelos ajustados e fundamentada na literatura psicométrica sobre a adequação dos escores somados do GAD-7 ([Stochl et al., 2022](https://pubmed.ncbi.nlm.nih.gov/33269612/)).
+:::
+
 ```{r}
 set.seed(23)
 
