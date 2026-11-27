@@ -324,7 +324,7 @@ Avaliar se o tempo diário de tela está associado ao sono e à ansiedade dos al
 
 -   **Coleta**: plataforma **Tally** entre `16/11` e `18/11/2026`.
 
--   **Recursos**: softwares livres (**R, Quarto, Tally, Netlify**), sem custos financeiros.
+-   **Recursos**: softwares livres (**Tally, R, Quarto**), sem custos financeiros
 :::
 :::::
 
@@ -966,25 +966,25 @@ knitr::kable(tab_sens_s, digits = 3, row.names = FALSE, booktabs = TRUE,
 :::
 :::::
 
-## 23. Discussão Crítica e Limitações do Estudo
+## 23. Resultados e Limitações do Estudo
 
 ::::: columns
 ::: {.column width="46.5%"}
 ### Por que o GAD-7 foi menor entre quem usou mais tela?
 
--   Em um **estudo observacional transversal**, mede-se associação e não causalidade direta.
+-   Neste tipo de estudo, mede-se associação e não causalidade.
 
--   Na turma avaliada, a relação inversa ($\hat{\beta} = -0{,}821\text{ pts/h}$, $p = 0{,}0213^*$) reflete um **efeito de rotina e disponibilidade de tempo livre**: alunos mais sobrecarregados e ansiosos dispunham de menos tempo livre para uso recreativo do celular.
+-   Na turma avaliada, a relação inversa ($\hat{\beta} = -0{,}821\text{ pts/h}$, $p = 0{,}0213^*$), possivelmente reflete um **efeito de rotina e disponibilidade de tempo livre**: alunos mais sobrecarregados e ansiosos tem menos tempo livre para uso recreativo do celular.
 :::
 
 ::: {.column width="46.5%"}
 ### Limitações Metodológicas
 
--   **Tamanho amostral (**$N = 32$): poder estatístico moderado para detectar efeitos pequenos.
+-   **Tamanho amostral (**$N = 32$): poder estatístico limitado para detectar efeitos pequenos.
 
--   **Amostragem por conveniência em turma única**: $100\%$ diurno e $75\%$ masculino.
+-   **Amostragem em turma única**: $100\%$ diurno e $75\%$ masculino.
 
--   **Autorrelato do sono**: diferentemente do tempo de tela ($93{,}75\%$ objetivo via sistema operacional), o sono foi autorreferido.
+-   **Autorrelato do sono**: a coleta do tempo de sono foi autorreferida.
 :::
 :::::
 
@@ -1042,9 +1042,9 @@ knitr::kable(tab_sens_s, digits = 3, row.names = FALSE, booktabs = TRUE,
 ::: {.column width="46.5%"}
 ### Resposta ao Objetivo C
 
--   **Tendência inversa coerente** com a literatura ($+1{,}41\text{ pts}$ no GAD-7 por hora a menos de sono).
+-   **Não há evidência estatística suficiente** ao nível de $\alpha = 0{,}05$ para explicar relação direta entre horas de sono e ansiedade (na ANOVA e na regressão).
 
--   Significância marginal a $10\%$, compatível com o tamanho amostral ($N = 32$).
+-   Observa-se apenas uma **tendência inversa descritiva** ($+1{,}41\text{ pts}$ por hora a menos de sono), sem significância para $N = 32$.
 :::
 :::::
 
