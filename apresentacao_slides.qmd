@@ -381,9 +381,6 @@ Instrução para consultar o painel do sistema operacional nos últimos 7 dias:
 :::
 :::::
 
-### Cálculo do Gasto Metabólico Semanal ($\text{MET-min/sem}$)
-
-$$\text{MET-min/sem} = 3{,}3 \times \text{min}_{\text{caminhada}} + 4{,}0 \times \text{min}_{\text{moderada}} + 8{,}0 \times \text{min}_{\text{vigorosa}}$$
 
 ## 7. Covariáveis e Plano de Análise Estatística ($\alpha = 0{,}05$)
 
